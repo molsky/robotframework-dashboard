@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block script %}
+  <script type="text/javascript">
+    "use strict";
+    $(document).ready(function() {
+        $('.btn.btn-default').on('click', function(event) {
+            $.ajax({
+                url: "{{ url_for('cmd') }}",
+                method: "POST",
+                data: {
+                    data: event.target.value
+                },
+                success: function(data) {
+                  console.log(data);
+                  runIsDone(data);
+                }
+            });
+        });
+    });
+  </script>
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-default">
+      <div class="panel-body" style="height: calc(100vh - 150px); overflow-y: auto;">
+        <ul class="list-group">
+          {% for test in tests %}
+          <div class="panel panel-primary">
+            <div class="panel-heading">{{ test }}</div>
+            <div class="panel-body">
+              <button type="button" id={{ test | split}} class="btn btn-default run" value={{ test }}>Run</button>
+            </div>
+          </div>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+
+    </footer>
+{% endblock %}

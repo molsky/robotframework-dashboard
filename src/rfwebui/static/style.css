@@ -1,0 +1,45 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 50px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.color_user {
+  background-color: #dbf4fd;
+}
+
+.color_server {
+  background-color: #f0f4f8;
+}
+
+.footer {
+    border-top: 1px solid black;
+    background-color: rgb(201, 201, 201);
+    position: fixed;
+    height: 60px;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+#settings {
+  background-color: rgba(0,0,255,0.5);
+  height: 100vh;
+  width: 100vw;
+  z-index: 10000;
+  top: 0;
+  position: fixed;
+  display: none;
+}
+
+#settings_menu_container {
+  opacity: 1;
+  margin-top: 100px;
+}
