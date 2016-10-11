@@ -1,6 +1,6 @@
 # Robot Framework Web UI
 
-![RF WEB UI](https://github.com/molsky/robotframework-webui/blob/master/media/rfwui.png "UI")
+![RF WEB UI](https://github.com/molsky/robotframework-webui/blob/master/media/rfwebui.png "UI")
 
 # Documentation
 Nothing yet.
