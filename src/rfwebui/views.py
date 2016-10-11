@@ -2,13 +2,17 @@
 
 from flask import render_template, request, redirect, Response, session, url_for, jsonify
 from rfwebui import app
-from rfwebui.code.helper import ConfigSectionMap
+from funcs.helper import ConfigSectionMap
 from glob import glob
 from subprocess import Popen
+from os import getcwd, path, makedirs
 import json
 
 
 working_dir = ConfigSectionMap("Files")['path']
+results_dir = getcwd() + "/results/"
+if not path.exists(results_dir):
+    makedirs(results_dir)
 
 
 def split_filter(s):
@@ -35,10 +39,16 @@ def index():
 @app.route('/cmd', methods=['POST'])
 def cmd():
     command = request.form.get('data')
-    proc = Popen(["robot", working_dir + command])
+    output_dir = results_dir + command.split('.')[0] + '/'
+    proc = Popen(["robot", "-d", output_dir, working_dir + command])
     proc.wait()
     sjson = json.dumps({'test_name': command, 'status_code': proc.returncode})
     return Response(sjson, content_type='text/event-stream')
+
+
+@app.route('/results')
+def results():
+    return redirect(url_for('results'))
 
 
 @app.errorhandler(404)

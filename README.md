@@ -6,12 +6,40 @@
 Nothing yet.
 
 # Setup
-First: update settings.ini file under app_configs folder (absolute path to folder where tests are located)
+* First:
+  * Update settings.ini file under app_configs folder (absolute path to folder where tests are located)
+  * Install nginx and configure it (see nginx section)
 
-1. Create 'flask' virtualenv inside 'src' folder
-2. Activate virtualenv and install requirements
-3. Run app './run.py'
-4. Open browser and go to (by default) 'http://127.0.0.1:5000/'
+1. Create Python3 virtualenv: 'virtualenv -p python3 envname'
+2. Activate virtualenv and install requirements 'pip install -r requirements.pip'
+3. Test that everything works
+  * Run 'rfwebui.py' in project folder
+  * Open browser and go to (by default) 'http://127.0.0.1:5000/'
+  * Close development server
+4. Test Gunicorn's ability to serve the project
+  * Run 'gunicorn --bind 0.0.0.0:8000 wsgi:app' in project folder
+
+## nginx configuration
+```
+sudo touch /etc/nginx/sites-available/flask_project
+sudo ln -s /etc/nginx/sites-available/flask_project /etc/nginx/sites-enabled/flask_project
+```
+Add following lines to `flask_project` file and then restart nginx: `sudo /etc/init.d/nginx restart`
+```
+server {
+    location / {
+        proxy_pass http://localhost:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    location /results {
+        include proxy_params;
+        alias [path_to_results_folder];
+        autoindex on;
+    }
+}
+```
 
 # Technologies
 * Python 3.5
@@ -24,8 +52,6 @@ First: update settings.ini file under app_configs folder (absolute path to folde
 * Ability to abort test execution
 * Show real time execution status via WEB UI (Console -page)
   * Show newest execution messages in footer section
-* Flask + gunicorn + nginx: To serve result files and images properly for users
-  * Ability to view result and log files via WEB UI
 * Add user roles?
   * Login page
 * Settings page or panel to enable configuration via WEB UI
