@@ -6,19 +6,20 @@
 Nothing yet.
 
 # Setup
-0. Pre-Requirements
+1. Pre-Requirements
   * Copy and rename `settings_orig.ini` to `settings.ini` file under app_configs folder and update it
     * Absolute path to folder where tests are located
   * Install nginx and configure it (see nginx section)
 
-1. Create Python3 virtualenv: 'virtualenv -p python3 [envname]'
-2. Activate your virtualenv and install requirements 'pip install -r requirements.pip'
-3. Test that everything works
-  * Run 'rfwebui.py' in project folder
-  * Open browser and go to (by default) 'http://127.0.0.1:5000/'
+2. Create Python3 virtualenv: `virtualenv -p python3 [envname]`
+3. Activate your virtualenv and install requirements `pip install -r requirements.pip`
+4. Test that everything works
+  * Run `rfwebui.py` in project folder
+  * Open browser and go to (by default) http://127.0.0.1:5000/
   * Close development server
-4. Test Gunicorn's ability to serve the project
-  * Run 'gunicorn --bind 0.0.0.0:8000 wsgi:app' in project folder
+5. Test Gunicorn's ability to serve the project
+  * Run `gunicorn --bind 0.0.0.0:8000 wsgi:app` in project folder
+  * Navigate to `localhost`
 
 ## nginx configuration
 ```
@@ -50,13 +51,14 @@ server {
 
 # Todo
 * Python 2 support
+* Automated installation process
 * Ability to abort test execution
 * Show real time execution status via WEB UI (Console -page)
   * Show newest execution messages in footer section
-* Add user roles?
-  * Login page
+* Show more test suite related information (documentation, last run time, pass/total ratio, etc.)
 * Settings page or panel to enable configuration via WEB UI
-* Search/filter features
 * pabot support
 * Handle correctly situations when app has more than 1 user at the same time
+* Add user roles?
+  * Login page
 * Update to Bootstrap 4 and jQuery 3 when Bootstrap 4 is ready
