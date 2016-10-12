@@ -6,7 +6,7 @@
 Nothing yet.
 
 # Setup
-0.
+0. Pre-Requirements
   * Copy and rename `settings_orig.ini` to `settings.ini` file under app_configs folder and update it
     * Absolute path to folder where tests are located
   * Install nginx and configure it (see nginx section)
