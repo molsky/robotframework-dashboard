@@ -29,3 +29,24 @@ function runIsDone(data) {
         $("#" + id + "-log").attr("href", "/results/" + id + "/log.html");
     }
 }
+
+$( "#test_search" ).on('input',function(e){
+    var input = $( this ).val();
+    $( ".panel-heading" ).each(function() {
+        var parent_id = $(this).parent().attr('id');
+        var text = $( this ).text();
+        if (text.indexOf(input) == -1) {
+            $("#" + parent_id).hide();
+        } else {
+            $("#" + parent_id).show();
+        }
+    });
+});
+
+$( "#reset_search" ).click(function() {
+    $( "#test_search" ).val("");
+    $( ".panel-heading" ).each(function() {
+        var parent_id = $(this).parent().attr('id');
+        $("#" + parent_id).show();
+    });
+});

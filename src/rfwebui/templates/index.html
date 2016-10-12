@@ -23,10 +23,16 @@
 
 {% block content %}
     <div class="panel panel-default">
-      <div class="panel-body" style="height: calc(100vh - 150px); overflow-y: auto;">
+        <div class="panel-body" style="height: calc(100vh - 150px); overflow-y: auto;">
+        <div class="input-group" style="margin-bottom: 20px;">
+            <span class="input-group-btn">
+                <button id="reset_search" class="btn btn-default" type="button">Reset</button>
+            </span>
+            <input id="test_search" type="text" class="form-control" placeholder="Search test suites ...">
+        </div>
         <ul class="list-group">
           {% for test in tests %}
-          <div class="panel panel-primary">
+          <div id="{{ test | split}}-panel" class="panel panel-primary">
             <div class="panel-heading">{{ test }}</div>
             <div class="panel-body">
               <button type="button" id="{{ test | split}}" class="btn btn-default run" value={{ test }}>Run</button>
@@ -38,7 +44,7 @@
           </div>
           {% endfor %}
         </ul>
-      </div>
+        </div>
     </div>
 {% endblock %}
 

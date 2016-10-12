@@ -6,12 +6,13 @@
 Nothing yet.
 
 # Setup
-* First:
-  * Update settings.ini file under app_configs folder (absolute path to folder where tests are located)
+0.
+  * Copy and rename `settings_orig.ini` to `settings.ini` file under app_configs folder and update it
+    * Absolute path to folder where tests are located
   * Install nginx and configure it (see nginx section)
 
-1. Create Python3 virtualenv: 'virtualenv -p python3 envname'
-2. Activate virtualenv and install requirements 'pip install -r requirements.pip'
+1. Create Python3 virtualenv: 'virtualenv -p python3 [envname]'
+2. Activate your virtualenv and install requirements 'pip install -r requirements.pip'
 3. Test that everything works
   * Run 'rfwebui.py' in project folder
   * Open browser and go to (by default) 'http://127.0.0.1:5000/'

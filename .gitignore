@@ -6,6 +6,7 @@
 
 log.html
 report.html
+settings.ini
 
 .idea/
 flask/

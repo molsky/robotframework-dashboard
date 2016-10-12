@@ -4,7 +4,7 @@ from configs.config import config
 
 
 app = Flask("rfwebui")
-app.config.from_object(config['production'])
+app.config.from_object(config['development'])
 toolbar = DebugToolbarExtension(app)
 
 
