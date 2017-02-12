@@ -2,14 +2,13 @@
 
 from flask import render_template, request, redirect, Response, session, url_for, jsonify
 from rfwebui import app
-from funcs.helper import ConfigSectionMap
+from funcs.helper import ConfigSectionMap, save_settings
 from glob import glob
 from subprocess import Popen
 from os import getcwd, path, makedirs
 import json
 
 
-working_dir = ConfigSectionMap("Files")['path']
 results_dir = getcwd() + "/results/"
 if not path.exists(results_dir):
     makedirs(results_dir)
@@ -23,6 +22,9 @@ app.jinja_env.filters['split'] = split_filter
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
+    if not path.isfile("app_configs/settings.ini"):
+        return redirect(url_for('settings'))
+    working_dir = ConfigSectionMap("FILES")['path']
     types = (working_dir + '*.robot', working_dir + '*.txt')
     files_grabbed = []
     for files in types:
@@ -32,12 +34,21 @@ def index():
     if not files_grabbed:
         files_grabbed.append('Nothing to show')  # TODO: redirect to error page with proper message
     return render_template('index.html',
-                           title='RF - Web UI',
+                           title='RF Dashboard',
                            tests=files_grabbed)
+
+
+@app.route('/settings', methods=['GET', 'POST'])
+def settings():
+    if request.method == 'POST':
+        save_settings(request.form['dir_path'])
+    return render_template('settings.html',
+                           title='RF Dashboard - Settings')
 
 
 @app.route('/cmd', methods=['POST'])
 def cmd():
+    working_dir = ConfigSectionMap("FILES")['path']
     command = request.form.get('data')
     output_dir = results_dir + command.split('.')[0] + '/'
     proc = Popen(["robot", "-d", output_dir, working_dir + command])

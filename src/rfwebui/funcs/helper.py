@@ -18,3 +18,12 @@ def ConfigSectionMap(section):
             print("exception on %s!" % option)
             dict1[option] = None
     return dict1
+
+
+def save_settings(dir_path):
+    config = configparser.ConfigParser()
+    if not dir_path.endswith('/'):
+        dir_path += '/'
+    config['FILES'] = {'Path': dir_path}
+    with open(os.path.join(os.path.dirname(__file__), '../app_configs/settings.ini'), 'w+') as configfile:
+        config.write(configfile)

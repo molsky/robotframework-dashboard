@@ -1,5 +1,7 @@
 "use strict";
 
+/*
+TODO: Use for something else?
 $( "#settings_btn" ).click(function() {
     $('.btn').button('reset');
     $( "#settings" ).show( "slow", function() {} );
@@ -8,6 +10,7 @@ $( "#settings_btn" ).click(function() {
 $( "#settings_btn_close" ).click(function() {
     $( "#settings" ).hide( "slow", function() {} );
 });
+*/
 
 $( ".run" ).click(function(event) {
     var id = event.target.id;
