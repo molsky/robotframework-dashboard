@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.04 - 13.05.2017.
+* Make setup more automated with new configuration page
+* Ability to change settings via web app
+* Rename to 'Robot Framework Dashboard'
+
 ## 0.03 - 12.10.2016.
 * Search functionality for test suites
 

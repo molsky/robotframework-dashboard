@@ -1,13 +1,17 @@
+# File extensions
 *.pyc
 *.log
 *.xml
 *.png
 *.bu
+*.ini
 
+# Files
 log.html
 report.html
 settings.ini
 
+# Folders
 .idea/
 flask/
 tests/

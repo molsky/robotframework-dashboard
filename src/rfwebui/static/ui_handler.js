@@ -1,14 +1,5 @@
 "use strict";
 
-$( "#settings_btn" ).click(function() {
-    $('.btn').button('reset');
-    $( "#settings" ).show( "slow", function() {} );
-});
-
-$( "#settings_btn_close" ).click(function() {
-    $( "#settings" ).hide( "slow", function() {} );
-});
-
 $( ".run" ).click(function(event) {
     var id = event.target.id;
     $("#" + id).attr("disabled", true);

@@ -16,7 +16,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="javascript:void(0)">Robot Framework - Web UI</a>
+          <a class="navbar-brand" href="javascript:void(0)">Robot Framework - Dashboard</a>
         </div>
         <ul class="nav navbar-nav navbar-left">
           <li id="home"><a href="{{ url_for('index') }}">Test Suites</a></li>
@@ -24,7 +24,7 @@
           <li id="console"><a href="javascript:void(0)">Console</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li id="settings_btn"><a href="javascript:void(0)"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+          <li id="settings_btn"><a href="{{ url_for('settings') }}"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
         </ul>
       </div>
     </nav>

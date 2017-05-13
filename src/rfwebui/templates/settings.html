@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-body" style="height: calc(100vh - 150px); overflow-y: auto;">
+        <form action="{{ url_for('settings') }}" method="POST">
+        {% for key, value in settings.items() %}
+            {% if key == 'test_file_dir' %}
+                 <div class="form-group">
+                   <label for="dir_path">Directory to Robot files:</label>
+                   <input type="text" class="form-control" name="dir_path" id="dir_path" value="{{ value }}">
+                 </div>
+            {% endif %}
+        {% endfor %}
+        <button type="submit" class="btn btn-default">Save</button>
+       </form>
+       </div>
+    </div>
+{% endblock %}
