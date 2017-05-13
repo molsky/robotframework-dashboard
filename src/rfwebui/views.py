@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-from flask import render_template, request, redirect, Response, session, url_for, jsonify
+from flask import render_template, request, redirect, Response, session, url_for
 from rfwebui import app
-from funcs.helper import ConfigSectionMap, save_settings
+from funcs.helper import ConfigSectionMap, save_settings, read_settings
 from glob import glob
 from subprocess import Popen
 from os import getcwd, path, makedirs
@@ -40,10 +40,13 @@ def index():
 
 @app.route('/settings', methods=['GET', 'POST'])
 def settings():
+    app_settings = read_settings()
+    print(app_settings)
     if request.method == 'POST':
         save_settings(request.form['dir_path'])
     return render_template('settings.html',
-                           title='RF Dashboard - Settings')
+                           title='RF Dashboard - Settings',
+                           settings=app_settings)
 
 
 @app.route('/cmd', methods=['POST'])

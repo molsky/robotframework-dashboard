@@ -3,7 +3,8 @@
 ![RF WEB UI](https://github.com/molsky/robotframework-webui/blob/master/media/rfwebui.png "UI")
 
 # Documentation
-Nothing yet.
+**Note:** This project is still more of less in Proof of Concept state. Software is not in this state suitable for any real
+use in live environments.
 
 # Setup
 1. Install nginx and configure it (see nginx section)
