@@ -25,7 +25,11 @@ if [ -d "$NGINX_DIRECTORY" ]; then
     sudo mkdir -p /etc/nginx/sites-enabled
 
     sudo cp setup_confs/rf_dashboard /etc/nginx/sites-available/
-    sudo cp setup_confs/rf_dashboard /etc/nginx/sites-enabled/
+
+    if [ -f "/etc/nginx/sites-enabled/rf_dashboard" ]; then
+        sudo unlink /etc/nginx/sites-enabled/rf_dashboard
+    fi
+    sudo ln -s /etc/nginx/sites-available/rf_dashboard /etc/nginx/sites-enabled/rf_dashboard
 
     systemctl restart nginx.service
 else
@@ -36,5 +40,5 @@ echo -e "\n=== Done!"
 
 echo "=== To run server:"
 echo "=== source rfd-venv/bin/activate"
-echo "=== In rfwebui run following:"
+echo "=== In rfwebui -folder run following:"
 echo "=== gunicorn --bind 0.0.0.0:8000 wsgi:app"

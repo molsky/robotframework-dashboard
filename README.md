@@ -14,9 +14,6 @@ use in live environments.
 3. Run `source rfd-venv/bin/activate` and then navigate to rfwebui folder and run `gunicorn --bind 0.0.0.0:8000 wsgi:app`
 4. Navigate to `localhost:8000`
 
-By default application uses `rfwebui/results` folder as location where RF files are located in nginx config files. If you want to use
-other location then nginx config files needs to manually updated. See "nginx configuration manually" chapter.
-
 ## nginx configuration manually
 ```
 sudo touch /etc/nginx/sites-available/rf_dashboard
@@ -34,7 +31,8 @@ server {
 
     location /results {
         include proxy_params;
-        alias [path_to_results_folder];
+        # By default rfwebui/results
+        alias [complete_path_to_results_folder]; 
         autoindex on;
     }
 }
@@ -43,7 +41,7 @@ server {
 # Technologies
 * Python 3
 * Flask
-* jQuery 2
+* jQuery 3
 * Bootstrap 3
 
 # Todo
@@ -52,4 +50,5 @@ server {
   * Show newest execution messages in footer section
 * Show more test suite related information & statistics (documentation, last run time, pass/total ratio, etc.)
 * pabot support
-* Update to Bootstrap 4 and jQuery 3 when Bootstrap 4 is ready
+* Module bundler for JS/HTML/CSS files (for example webpack with npm)
+* Update to Bootstrap 4 when Bootstrap 4 is ready

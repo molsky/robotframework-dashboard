@@ -1,7 +1,9 @@
 # Changelog
 
-## 0.05 -
+## 0.05 - X
 * Added `setup.sh` script file that does installation
+* Updated Bootstrap and jQuery versions
+* Documentation updated
 
 ## 0.04 - 13.05.2017.
 * Make setup more automated with new configuration page
