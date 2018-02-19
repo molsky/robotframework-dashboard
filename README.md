@@ -6,7 +6,7 @@
 **Notes:**
 * This project is still more of less in Proof of Concept state. Software is not in this state suitable for any real
 use in live environments.
-* This application should never be set visible to public Internet when making changes to nginx config files
+* This application should never be set visible to public Internet when making changes to nginx config files.
 
 # Setup
 1. Install nginx
@@ -17,7 +17,7 @@ use in live environments.
 ## nginx configuration manually
 ```
 sudo touch /etc/nginx/sites-available/rf_dashboard
-sudo ln -s /etc/nginx/sites-available/flask_project /etc/nginx/sites-enabled/rf_dashboard
+sudo ln -s /etc/nginx/sites-available/rf_dashboard /etc/nginx/sites-enabled/rf_dashboard
 ```
 Add following lines to `rf_dashboard` file and then restart nginx with `systemctl restart nginx.service` or
 `service nginx restart`
@@ -32,7 +32,7 @@ server {
     location /results {
         include proxy_params;
         # By default rfwebui/results
-        alias [complete_path_to_results_folder]; 
+        alias [complete_path_to_results_folder];
         autoindex on;
     }
 }
