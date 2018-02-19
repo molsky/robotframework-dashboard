@@ -1,19 +1,22 @@
 # File extensions
-*.pyc
-*.log
-*.xml
-*.png
 *.bu
 *.ini
+*.log
+*.png
+*.pyc
+*.xml
 
 # Files
 log.html
 report.html
+rf_dashboard
 settings.ini
 
 # Folders
 .idea/
-flask/
-tests/
-results/
 __pycache__/
+flask/
+logs/
+results/
+rfd-venv/
+tests/

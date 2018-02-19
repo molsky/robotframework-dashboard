@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.05 -
+* Added `setup.sh` script file that does installation
+
 ## 0.04 - 13.05.2017.
 * Make setup more automated with new configuration page
 * Ability to change settings via web app
