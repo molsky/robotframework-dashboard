@@ -9,10 +9,12 @@ use in live environments.
 * This application should never be set visible to public Internet when making changes to nginx config files.
 
 # Setup
-1. Install nginx
+1. Install nginx, Python 3 and pip
 2. Run `./setup.sh` in project's root folder
-3. Run `source rfd-venv/bin/activate` and then navigate to rfwebui folder and run `gunicorn --bind 0.0.0.0:8000 wsgi:app`
+3. Run `./start_server.sh`
 4. Navigate to `localhost:8000`
+
+To run server manually: `source rfd-venv/bin/activate` and then navigate to rfwebui folder and run `gunicorn --bind 0.0.0.0:8000 wsgi:app`
 
 ## nginx configuration manually
 ```
