@@ -9,7 +9,7 @@ use in live environments.
 * This application should never be set visible to public Internet when making changes to nginx config files.
 
 # Setup
-1. Install nginx and Python 3 (version 3.4 or later required)
+1. Install nginx and Python 3 (version 3.4 or later required), also python3-venv may be required on Debian/Ubuntu systems
 2. Run `./setup.sh` in project's root folder
 3. Run `./start_server.sh`
 4. Navigate to `localhost:8000`
