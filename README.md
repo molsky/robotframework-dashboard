@@ -9,7 +9,7 @@ use in live environments.
 * This application should never be set visible to public Internet when making changes to nginx config files.
 
 # Setup
-1. Install nginx, Python 3 and pip
+1. Install nginx, Python 3, pip3 and virtualenv
 2. Run `./setup.sh` in project's root folder
 3. Run `./start_server.sh`
 4. Navigate to `localhost:8000`

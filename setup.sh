@@ -10,7 +10,7 @@ if [ -d "$VENV_DIRECTORY" ]; then
     rm -rf $VENV_DIRECTORY
 fi
 
-virtualenv -p python3 $VENV_DIRECTORY
+python3 -m virtualenv $VENV_DIRECTORY
 source "$VENV_DIRECTORY/bin/activate"
 pip install -r requirements.pip
 
