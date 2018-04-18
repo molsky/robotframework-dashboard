@@ -1,4 +1,9 @@
 server {
+    listen 80;
+
+    access_log  /var/log/nginx/access.log;
+    error_log  /var/log/nginx/error.log;
+
     location / {
         proxy_pass http://localhost:8000;
         proxy_set_header Host $host;
@@ -6,7 +11,6 @@ server {
     }
 
     location /results {
-        include proxy_params;
         alias __RF_RESULTS_FOLDER_PATH__;
         autoindex on;
     }

@@ -16,6 +16,8 @@ if not path.exists(results_dir):
 
 def split_filter(s):
     return s.split('.')[0]
+
+
 app.jinja_env.filters['split'] = split_filter
 
 
