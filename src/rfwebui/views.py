@@ -22,7 +22,7 @@ app.jinja_env.filters['split'] = split_filter
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    if not path.isfile("app_config/settings.ini"):
+    if not path.isfile("app_configs/settings.ini"):
         return redirect(url_for('settings'))
     working_dir = ConfigSectionMap("FILES")['path']
     types = (working_dir + '*.robot', working_dir + '*.txt')
