@@ -5,6 +5,11 @@ $( ".run" ).click(function(event) {
     $("#" + id).attr("disabled", true);
     $("#" + id).html('Running ...');
     $("#" + id).toggleClass('btn-default btn-warning');
+    $("#" + id + "-panel").addClass("panel-primary")
+    $("#" + id + "-panel").removeClass("panel-success")
+    $("#" + id + "-panel").removeClass("panel-danger")
+    $("#" + id + "-panel").css("background", "rgba(238, 238, 238, 1)");
+
 });
 
 function runIsDone(data) {
@@ -16,8 +21,18 @@ function runIsDone(data) {
     $("#" + id).toggleClass('btn-warning btn-default');
     if (status_code == 0) {
         $("#" + id + "-files").show();
-        $("#" + id + "-report").attr("href", "/results/" + id + "/report.html");
-        $("#" + id + "-log").attr("href", "/results/" + id + "/log.html");
+        $("#" + id + "-report").attr("href", "/static/" + id + "/report.html");
+        $("#" + id + "-log").attr("href", "/static/" + id + "/log.html");
+        // panel-danger
+        $("#" + id + "-panel").removeClass("panel-primary")
+        $("#" + id + "-panel").addClass("panel-success")
+        $("#" + id + "-panel").css("background", "rgba(123, 239, 178, 1)");
+       
+    } 
+    if (status_code == 1) {
+        $("#" + id + "-panel").removeClass( "panel-primary" )
+        $("#" + id + "-panel").addClass('panel-danger');
+        $("#" + id + "-panel").css("background", "rgba(214, 69, 65, 1)");
     }
 }
 

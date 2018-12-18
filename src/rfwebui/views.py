@@ -9,7 +9,7 @@ from os import getcwd, path, makedirs
 import json
 
 
-results_dir = getcwd() + "/results/"
+results_dir = getcwd() + "/static/"
 if not path.exists(results_dir):
     makedirs(results_dir)
 
@@ -53,22 +53,23 @@ def settings():
 def cmd():
     working_dir = ConfigSectionMap("FILES")['path']
     command = request.form.get('data')
+    print("Got data: " + command)
     output_dir = results_dir + command.split('.')[0] + '/'
+    print("output dir: " + output_dir)
     proc = Popen(["robot", "-d", output_dir, working_dir + command])
     proc.wait()
+    print("Result code: {}".format(proc.returncode))
     sjson = json.dumps({'test_name': command, 'status_code': proc.returncode})
     return Response(sjson, content_type='text/event-stream')
 
 
 @app.route('/results')
 def results():
-    return redirect(url_for('results'))
-
+    return redirect(url_for('static'))
 
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html', title='Page not found')
-
 
 @app.errorhandler(405)
 def page_error(e):

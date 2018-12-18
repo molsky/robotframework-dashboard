@@ -3,7 +3,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from configs.config import config
 
 
-app = Flask("rfwebui")
+app = Flask("rfwebui", static_folder="static")
 app.config.from_object(config['development'])
 toolbar = DebugToolbarExtension(app)
 
