@@ -7,6 +7,17 @@
 use in live environments.
 
 # Setup
+
+You can either use docker to execute the robotdashboard as a container or you can follow the manual setup to have the full control. 
+
+## Docker Setup
+`cd` to the repository and execute the following docker command: 
+```
+docker build -t robotdashboard:dev . && docker run -p 8000:8000 -v $(pwd)/tests/:/usr/tests/ -v $(pwd)/src/:/usr/work/ -d robotdashboard:dev
+```
+By default, it will mount all the tests in $(pwd)/tests/ into the tests directory of the container. 
+
+## Manual Setup
 1. Install nginx and configure it (see nginx section)
 2. Create Python3 virtualenv: `virtualenv -p python3 [envname]`
 3. Activate your virtualenv and install requirements `pip install -r requirements.pip`

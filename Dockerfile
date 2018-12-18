@@ -14,4 +14,4 @@ RUN ln -s /etc/nginx/sites-available/flask_project /etc/nginx/sites-enabled/flas
 USER root
 WORKDIR /usr/work/rfwebui/
 
-#ENTRYPOINT gunicorn --bind 0.0.0.0:8000 wsgi:app
+ENTRYPOINT gunicorn --bind 0.0.0.0:8000 wsgi:app
