@@ -19,17 +19,19 @@ function runIsDone(data) {
     $("#" + id).attr("disabled", false);
     $("#" + id).html('Run');
     $("#" + id).toggleClass('btn-warning btn-default');
+    
+    $("#" + id + "-files").show();
+    $("#" + id + "-report").attr("href", "/static/" + id + "/report.html");
+    $("#" + id + "-log").attr("href", "/static/" + id + "/log.html");
+    
     if (status_code == 0) {
-        $("#" + id + "-files").show();
-        $("#" + id + "-report").attr("href", "/static/" + id + "/report.html");
-        $("#" + id + "-log").attr("href", "/static/" + id + "/log.html");
-        // panel-danger
+        // panel-success
         $("#" + id + "-panel").removeClass("panel-primary")
         $("#" + id + "-panel").addClass("panel-success")
         $("#" + id + "-panel").css("background", "rgba(123, 239, 178, 1)");
-       
     } 
     if (status_code == 1) {
+        // panel-danger
         $("#" + id + "-panel").removeClass( "panel-primary" )
         $("#" + id + "-panel").addClass('panel-danger');
         $("#" + id + "-panel").css("background", "rgba(214, 69, 65, 1)");
