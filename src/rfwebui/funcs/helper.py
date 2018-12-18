@@ -2,7 +2,7 @@ import configparser
 import os
 
 
-SETTINGS_FILE_PATH = "../app_config/settings.ini"
+SETTINGS_FILE_PATH = "../app_configs/settings.ini"
 
 
 def ConfigSectionMap(section):
